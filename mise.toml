@@ -1,0 +1,11 @@
+[tools]
+"github:cemevren/grctl" = { version = "latest", version_prefix = "grctl/server-v" }
+uv = "latest"
+
+[tasks.worker]
+description = "Start the worker"
+run = "uv run python worker.py"
+
+[tasks.client]
+description = "Start the client"
+run = "uv run python client.py"
