@@ -4,7 +4,7 @@ version = "0.0.0"
 description = "A grctl workflow project"
 requires-python = ">=3.13"
 dependencies = [
-    "grctl-sdk-python @ git+https://github.com/cemevren/grctl.git@sdk/packaging#subdirectory=sdk_python",
+    "grctl-sdk-python",
 ]
 
 [tool.uv]
