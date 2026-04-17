@@ -2,20 +2,18 @@
 set -e
 
 echo "🚀 Downloading Ground Control Starter Project..."
-curl -sL "https://github.com/cemevren/grctl-starter/archive/refs/heads/main.zip" -o grctl-starter.zip
-
-echo "📦 Unzipping project..."
-unzip -q grctl-starter.zip
-rm grctl-starter.zip
-
-# GitHub archives are extracted into a directory named "<repo>-<branch>"
-if [ -d "grctl-starter-main" ]; then
-    # If the local grctl-starter dir already exists, remove it or rename to avoid collision 
-    if [ -d "grctl-starter" ]; then
-        rm -rf grctl-starter
-    fi
-    mv grctl-starter-main grctl-starter
+if [ -d "grctl-starter" ]; then
+    rm -rf grctl-starter
 fi
+
+if ! git clone -q --depth 1 https://github.com/cemevren/grctl-starter.git grctl-starter; then
+    echo "❌ Failed to download the starter project."
+    echo "Please check your internet connection or git credentials, and try again."
+    exit 1
+fi
+
+echo "📦 Preparing project..."
+rm -rf grctl-starter/.git
 
 echo "✅ Project successfully created in ./grctl-starter"
 echo ""
@@ -27,7 +25,7 @@ if ! command -v mise &> /dev/null; then
     echo "To install mise, visit: https://mise.jdx.dev/getting-started.html"
     echo ""
     echo "If you prefer manual installation for the grctld server and grctl CLI, please see our manual installation documentation:"
-    echo "👉 https://example.com/docs/manual-install"
+    echo "👉 https://cemevren.github.io/grctl/quick_start/#manual-installation"
 else
     echo "🎉 'mise' is installed! You're ready to go."
     echo ""

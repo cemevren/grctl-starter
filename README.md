@@ -1,37 +1,77 @@
 # Ground Control Starter
 
-A minimal [grctl](https://grctl.dev) workflow project, ready to run.
-
-## Prerequisites
-
-- Python 3.13+
-- [uv](https://docs.astral.sh/uv/)
-- grctl server binary (`grctld`)
+A minimal Ground Control workflow project, ready to run.
 
 ## Quick Start
 
-**1. Start the grctl server** (in a separate terminal):
+You can quickly scaffold a new Ground Control project by running our starter script. This will download the project into a `grctl-starter` directory.
 
 ```bash
-grctl start
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/cemevren/grctl-starter/main/init.sh)"
 ```
 
-**2. Install dependencies:**
+Once the project is created, navigate into it:
 
+```bash
+cd grctl-starter
+```
+
+### Next Steps
+
+We recommend using [`mise`](https://mise.jdx.dev) to manage the required tools (Python, uv, and the grctl CLI). 
+
+**1. Install project tools and dependencies:**
+
+```bash
+mise install
+```
+
+**2. Start the `grctld` server** (in your current terminal or a background tmux session):
+
+```bash
+grctld
+```
+*(Optionally run this in the background: `tmux new-session -d -s grctl_server 'grctld'`)*
+
+**3. Start the worker** (in a new terminal):
+
+```bash
+mise run worker
+```
+
+**4. Trigger a workflow** (in another terminal):
+
+```bash
+grctl workflow start --type Hello --input '{"name": "World"}'
+```
+
+### Manual Installation (Without `mise`)
+
+If you prefer not to use `mise`, you can install the components manually:
+
+**1. Install the server and CLI:**
+```bash
+curl -fsSL https://raw.githubusercontent.com/cemevren/grctl/sdk/packaging/install.sh | sh
+```
+
+**2. Start the `grctld` server** (in your current terminal or a background tmux session):
+```bash
+grctld
+```
+
+**3. Install project dependencies:**
 ```bash
 uv sync
 ```
 
-**3. Start the worker:**
-
+**4. Start the worker** (in a new terminal):
 ```bash
 uv run python worker.py
 ```
 
-**4. Run a workflow** (in another terminal):
-
+**5. Trigger a workflow** (in another terminal):
 ```bash
-uv run python client.py
+grctl workflow start --type Hello --input '{"name": "World"}'
 ```
 
 ## Project Structure
@@ -59,5 +99,4 @@ This demonstrates the core grctl concepts: **workflows**, **tasks**, **context/s
 ## Next Steps
 
 - Add more workflows in the `workflows/` directory
-- Explore [steps](https://docs.grctl.dev), [events](https://docs.grctl.dev), and [child workflows](https://docs.grctl.dev)
-- Read the [grctl documentation](https://docs.grctl.dev)
+- Explore [Ground Control documentation](https://cemevren.github.io/grctl/)
