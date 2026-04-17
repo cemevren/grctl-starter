@@ -1,9 +1,8 @@
 import asyncio
 import logging
 
-from grctl.logging_config import get_logger, setup_logging
-from grctl.nats.connection import Connection
-from grctl.worker.worker import Worker
+from grctl.client import Connection, get_logger, setup_logging
+from grctl.worker import Worker
 
 from workflows.hello import hello
 
