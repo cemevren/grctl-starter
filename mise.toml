@@ -1,5 +1,5 @@
 [tools]
-"github:cemevren/grctl" = { version = "latest", version_prefix = "grctl/server-v" }
+"github:grctl/grctl" = { version = "latest", version_prefix = "grctl/server-v" }
 uv = "latest"
 
 [tasks.worker]
