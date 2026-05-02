@@ -6,7 +6,7 @@ if [ -d "grctl-starter" ]; then
     rm -rf grctl-starter
 fi
 
-if ! git clone -q --depth 1 https://github.com/cemevren/grctl-starter.git grctl-starter; then
+if ! git clone -q --depth 1 https://github.com/grctl/grctl-starter.git grctl-starter; then
     echo "❌ Failed to download the starter project."
     echo "Please check your internet connection or git credentials, and try again."
     exit 1
@@ -25,7 +25,7 @@ if ! command -v mise &> /dev/null; then
     echo "To install mise, visit: https://mise.jdx.dev/getting-started.html"
     echo ""
     echo "If you prefer manual installation for the grctld server and grctl CLI, please see our manual installation documentation:"
-    echo "👉 https://cemevren.github.io/grctl/quick_start/#manual-installation"
+    echo "👉 https://grctl.github.io/grctl/quick_start/#manual-installation"
 else
     echo "🎉 'mise' is installed! You're ready to go."
     echo ""
