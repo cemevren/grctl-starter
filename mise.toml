@@ -1,5 +1,5 @@
 [tools]
-"github:grctl/grctl" = { version = "latest", version_prefix = "grctl/server-v" }
+"github:grctl/grctl" = "latest"
 uv = "latest"
 
 [tasks.worker]
