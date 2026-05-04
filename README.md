@@ -51,7 +51,7 @@ If you prefer not to use `mise`, you can install the components manually:
 
 **1. Install the server and CLI:**
 ```bash
-curl -fsSL https://raw.githubusercontent.com/grctl/grctl/sdk/packaging/install.sh | sh
+curl -fsSL https://raw.githubusercontent.com/grctl/grctl/main/install.sh | sh
 ```
 
 **2. Start the `grctld` server** (in your current terminal or a background tmux session):
