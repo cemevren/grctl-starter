@@ -2,6 +2,10 @@
 
 A minimal Ground Control workflow project, ready to run.
 
+- **Server:** [grctl/grctl](https://github.com/grctl/grctl)
+- **Python SDK:** [grctl/sdk-python](https://github.com/grctl/sdk-python)
+- **Documentation:** [grctl.github.io/grctl](https://grctl.github.io/grctl)
+
 ## Quick Start
 
 You can quickly scaffold a new Ground Control project by running our starter script. This will download the project into a `grctl-starter` directory.
@@ -45,6 +49,14 @@ mise run worker
 grctl workflow start --type Hello --input '{"name": "World"}'
 ```
 
+**5. Inspect workflow runs:**
+
+```bash
+grctl workflow list
+```
+
+This lists past and in-flight workflow executions along with their status, so you can confirm the run you just triggered completed.
+
 ### Manual Installation (Without `mise`)
 
 If you prefer not to use `mise`, you can install the components manually:
@@ -73,6 +85,12 @@ uv run python worker.py
 ```bash
 grctl workflow start --type Hello --input '{"name": "World"}'
 ```
+
+**6. Inspect workflow runs:**
+```bash
+grctl workflow list
+```
+This lists past and in-flight workflow executions along with their status, so you can confirm the run you just triggered completed.
 
 ## Project Structure
 
