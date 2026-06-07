@@ -1,12 +1,9 @@
-import logging
-
-from grctl.logging_config import get_logger, setup_logging
+from grctl.logging_config import get_logger
 from grctl.models import Directive
 from grctl.worker.context import Context
 from grctl.worker.task import task
 from grctl.workflow import Workflow
 
-setup_logging(level=logging.INFO)
 logger = get_logger(__name__)
 
 
